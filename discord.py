@@ -16,6 +16,8 @@ class Discord:
 
     async def send(self, channel_id:int, message:str):
         channel = Discord.bot.get_channel(channel_id)
+        if channel is None:
+            raise Exception(f"discord) Can not find channel: {channel_id}")
         await channel.send(message)
         await asyncio.sleep(0.1)
 
